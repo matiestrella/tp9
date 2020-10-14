@@ -7,6 +7,8 @@ int check_palindromo(char* str)
     return ;
 }
 
+
+
 limpieza_string(char* str,char* frase)
 {
     int i,h=0;
