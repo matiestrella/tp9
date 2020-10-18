@@ -1,61 +1,57 @@
+/***************************************************************************//**
+  @file     ej4.c
+  @brief    Contiene las funciones necesarias 
+  @author   Grupo 6
+ ******************************************************************************/
+/*******************************************************************************
+ * INCLUDE HEADER FILES
+ ******************************************************************************/
+#include "ej4.h"
 
+/*******************************************************************************
+ *******************************************************************************
+                        GLOBAL FUNCTION DEFINITIONS
+ *******************************************************************************
+ ******************************************************************************/
 
-int limpieza_string (char*,char* );
-int recursiva(int ,int ,char * );
+int obtenerPalabra(char pal[]){
+	char c;
+	int i,h;
+	int flag=0;
+	while(flag == 0){
+		h = 0;
+		for(i=0;(c=getchar())!='\n';i++){
 
-int check_palindromo(char* str)
-{
-    char frase[100];
-    int largo_string,resultado=0,i=0;
-    
-    largo_string = limpieza_string(str,frase);
-    resultado=recursiva(largo_string,i,frase);
-    return resultado;
+			if(c>= 'A' && c <= 'Z'){
+	          pal[h]= (c +' ');
+	          h++;
+	        }
+	      	if(c >= 'a' && c <= 'z'){
+	          pal[h]= c;
+	          h++;
+	        }
+	     }
+
+	    if(i>LARGO_FRASE){
+	        printf("SE SUPERO EL LARGO PERMITIDO PARA LA FRASE. No superar los %d caracteres.\nIngresar nuevamente una frase\n", LARGO_FRASE);
+	    }else if(i<=LARGO_FRASE){
+	    	flag=1;
+	    }
+	}
+
+	return h; //devuelve el tamaño de la palabra limpia
 }
 
 
-
-int limpieza_string(char* str,char* frase)
-{
-    int i,h=0;
-    
-    for(i=0;*(str+i)!='/0';i++)
-    {
-      if(*(str+i)>= 'A' && *(str+i)<= 'Z')
-        {
-          *(frase+h)= (*(str+i)+' ');
-          h++;
-        }
-      else if(*(str+i)>= 'a' && *(str+i)<= 'z')
-        {
-          *(frase+h)= *(str+i);
-          h++;
-        }
-    }
-    return h;
-}
-
-
-int recursiva(int h,int i,char * frase)
-{
-    int flag=1;
-    if (h==0)
-        {
-        return flag;
-        }
-    else
-        {
-
-        if(frase[i]!=frase[h]);
-            {
-            flag=0;
-            }
-        i++;
-        h--;
-        if(recursiva(h,i,frase) ==0);
-            {
-            flag=0;
-            }
-        return flag;
-        }
+int esPalindromo(char * palabra, int inicio, int final){  
+	//caso base
+	if (inicio >= final){
+		return 1; // es Palíndroma
+	} else if (palabra[inicio]!= palabra[final]){
+		return 0;// no es Palíndroma
+	}else{ // caso recursivo
+		inicio++;
+		final--;
+		return esPalindromo(palabra,inicio,final);
+	}
 }
