@@ -1,11 +1,12 @@
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "ej4.h"
 
-
-int main()
+int main(void)
 {
-    check_palindromo(str);
+    char * str= "oso";
+    int resultado;
+    resultado =check_palindromo(str);
+    printf("El resiltado es %d \n", resultado);
     return 0;
 }
 

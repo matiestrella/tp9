@@ -11,7 +11,8 @@
  * INCLUDE HEADER FILES
  ******************************************************************************/
 
-
+#include <stdio.h>
+#include <stdlib.h>
 
 /*******************************************************************************
  * CONSTANT AND MACRO DEFINITIONS USING #DEFINE
@@ -42,7 +43,7 @@
  * @param param2 Descripcion parametro 2
  * @return Descripcion valor que devuelve
 */
-// +ej: char lcd_goto (int fil, int col);+
+int check_palindromo(char* str)
 
 
 /*******************************************************************************

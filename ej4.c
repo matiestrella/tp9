@@ -1,7 +1,7 @@
 
 
-limpieza_string(char* str,char* frase)
-recursiva()
+int limpieza_string (char*,char* );
+int recursiva(int ,int ,char * );
 
 int check_palindromo(char* str)
 {
@@ -38,7 +38,7 @@ int limpieza_string(char* str,char* frase)
 
 int recursiva(int h,int i,char * frase)
 {
-    flag=1;
+    int flag=1;
     if (h==0)
         {
         return flag;
@@ -48,11 +48,14 @@ int recursiva(int h,int i,char * frase)
 
         if(frase[i]!=frase[h]);
             {
-            flag=0
+            flag=0;
             }
         i++;
         h--;
-        recursiva(h,i,frase);
+        if(recursiva(h,i,frase) ==0);
+            {
+            flag=0;
+            }
         return flag;
         }
 }
