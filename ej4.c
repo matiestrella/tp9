@@ -8,8 +8,8 @@ int check_palindromo(char* str)
     char frase[100];
     int largo_string,resultado=0,i=0;
     
-    largo_string = limpieza_string(str,i,frase);
-    resultado=recursiva(largo_string,frase);
+    largo_string = limpieza_string(str,frase);
+    resultado=recursiva(largo_string,i,frase);
     return resultado;
 }
 
