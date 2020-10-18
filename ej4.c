@@ -9,7 +9,7 @@ int check_palindromo(char* str)
     int largo_string,resultado=0,i=0;
     
     largo_string = limpieza_string(str,i,frase);
-    recursiva(largo_string,frase);
+    resultado=recursiva(largo_string,frase);
     return resultado;
 }
 
